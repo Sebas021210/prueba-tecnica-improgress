@@ -1,0 +1,84 @@
+@use 'sass:list';
+@use '../../styles/tokens' as *;
+
+$chart-height: 16rem;
+$dim-opacity: 0.55;
+
+// Light to dark, same order as the months.
+$leads-shades: (
+  $color-charts-blue-periwinkle,
+  $color-charts-blue-wisteria-blue,
+  $color-charts-blue-glaucous,
+  $color-charts-blue-royal-azure,
+  $color-charts-blue-ocean-twilight,
+  $color-charts-blue-imperial-blue
+);
+
+.leads-chart {
+  &__plot {
+    height: $chart-height;
+
+    .recharts-xAxis .recharts-text {
+      fill: $color-text-secondary;
+      font-size: $size-body-3;
+    }
+  }
+
+  &__value {
+    fill: $color-text-primary;
+    font-size: $size-body-3;
+  }
+
+  @for $i from 1 through list.length($leads-shades) {
+    &__bar--#{$i - 1} {
+      fill: list.nth($leads-shades, $i);
+    }
+  }
+
+  &__bar--dim {
+    opacity: $dim-opacity;
+  }
+
+  &__toggle {
+    padding: $spacing-4 $spacing-12;
+    background: transparent;
+    border: 1px solid $color-border;
+    border-radius: $radius-button;
+    color: $color-text-secondary;
+    font-family: inherit;
+    font-size: $size-body-3;
+    cursor: pointer;
+
+    &:hover {
+      background: $color-gray-white-smoke;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-blue;
+      outline-offset: 2px;
+    }
+  }
+
+  &__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: $size-body-3;
+
+    th,
+    td {
+      padding: $spacing-8 $spacing-12;
+      border-bottom: 1px solid $color-border;
+      text-align: left;
+    }
+
+    td,
+    thead th:last-child {
+      text-align: right;
+    }
+
+    thead th {
+      color: $color-text-secondary;
+      font-weight: $weight-body-3;
+    }
+  }
+}

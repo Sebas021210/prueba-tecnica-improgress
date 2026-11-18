@@ -1,5 +1,8 @@
 @use './styles/tokens' as *;
 
+// Layout breakpoint, not a design token.
+$breakpoint-desktop: 1024px;
+
 .app {
   min-height: 100dvh;
   background: $color-bg;
@@ -8,5 +11,15 @@
     display: grid;
     gap: $spacing-24;
     padding: $spacing-24;
+  }
+
+  &__panels {
+    display: grid;
+    gap: $spacing-16;
+    grid-template-columns: 1fr;
+
+    @media (min-width: $breakpoint-desktop) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 }

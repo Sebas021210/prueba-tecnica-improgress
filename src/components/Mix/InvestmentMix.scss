@@ -1,0 +1,72 @@
+@use '../../styles/tokens' as *;
+
+$track-height: $spacing-8;
+
+.mix {
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    gap: $spacing-16;
+    padding-bottom: $spacing-8;
+    border-bottom: 1px solid $color-border;
+    font-size: $size-body-3;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: $color-text-secondary;
+
+    // "Inversión" and "% Total" sit together on the right, like the figures below.
+    span:first-child {
+      margin-right: auto;
+    }
+  }
+
+  &__list {
+    display: grid;
+    gap: $spacing-16;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: $spacing-16;
+    margin-bottom: $spacing-8;
+  }
+
+  &__name {
+    font-size: $size-body-2;
+    color: $color-text-primary;
+  }
+
+  &__figures {
+    display: inline-flex;
+    align-items: baseline;
+    gap: $spacing-8;
+    font-size: $size-body-3;
+    color: $color-text-secondary;
+  }
+
+  &__share {
+    padding-left: $spacing-8;
+    border-left: 1px solid $color-gray-timberwolf;
+    font-size: $size-body-2;
+    font-weight: $weight-body-4;
+    color: $color-text-primary;
+  }
+
+  &__track {
+    height: $track-height;
+    background: $color-gray-alabaster;
+    border-radius: $radius-pill;
+    overflow: hidden;
+  }
+
+  &__fill {
+    height: 100%;
+    background: $color-charts-blue-royal-azure;
+    border-radius: $radius-pill;
+  }
+}

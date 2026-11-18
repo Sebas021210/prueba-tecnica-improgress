@@ -28,3 +28,10 @@ export function formatVariation(fraction: number): string {
   const sign = fraction > 0 ? '+' : ''
   return `${sign}${formatPercent(fraction)}`
 }
+
+// 68000 -> "68k", 1250 -> "1.3k", 950 -> "950".
+export function formatCompact(value: number): string {
+  if (value < 1000) return String(value)
+  const thousands = value / 1000
+  return `${thousands.toFixed(thousands < 10 ? 1 : 0).replace(/\.0$/, '')}k`
+}

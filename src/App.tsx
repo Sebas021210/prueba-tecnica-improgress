@@ -1,6 +1,8 @@
 import EmptyState from '@/components/EmptyState/EmptyState'
 import FiltersBar from '@/components/Filters/FiltersBar'
 import KpiRow from '@/components/Kpi/KpiRow'
+import LeadsChart from '@/components/Leads/LeadsChart'
+import InvestmentMix from '@/components/Mix/InvestmentMix'
 import PageState from '@/components/PageState/PageState'
 import Topbar from '@/components/Topbar/Topbar'
 import { useDashboard } from '@/hooks/useDashboard'
@@ -29,7 +31,13 @@ export default function App() {
         {view.isEmpty ? (
           <EmptyState message="No hay datos para los filtros seleccionados." />
         ) : (
-          <KpiRow kpis={view.kpis} />
+          <>
+            <KpiRow kpis={view.kpis} />
+            <div className="app__panels">
+              <LeadsChart data={view.leadsPorMes} />
+              <InvestmentMix items={view.mix} />
+            </div>
+          </>
         )}
       </div>
     </div>

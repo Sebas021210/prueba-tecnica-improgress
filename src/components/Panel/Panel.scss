@@ -1,0 +1,37 @@
+@use '../../styles/tokens' as *;
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-16;
+  padding: $spacing-20;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-card;
+  box-shadow: $shadow-card;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: $spacing-12;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: $size-body-2;
+    font-weight: $weight-heading-3;
+    color: $color-text-primary;
+  }
+
+  &__subtitle {
+    padding-left: $spacing-12;
+    border-left: 1px solid $color-gray-timberwolf;
+    font-size: $size-body-3;
+    color: $color-text-secondary;
+  }
+
+  &__actions {
+    margin-left: auto;
+  }
+}
