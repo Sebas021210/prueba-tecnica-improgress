@@ -1,4 +1,5 @@
 import Panel from '@/components/Panel/Panel'
+import ProgressBar from '@/components/ProgressBar/ProgressBar'
 import { formatCurrency, formatPercent } from '@/lib/format'
 import type { MixItem } from '@/types/view'
 import './InvestmentMix.scss'
@@ -31,9 +32,7 @@ export default function InvestmentMix({ items }: InvestmentMixProps) {
                 </strong>
               </span>
             </div>
-            <div className="mix__track" aria-hidden="true">
-              <div className="mix__fill" style={{ width: `${item.share * 100}%` }} />
-            </div>
+            <ProgressBar value={item.share} />
           </li>
         ))}
       </ul>

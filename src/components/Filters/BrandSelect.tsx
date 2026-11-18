@@ -8,8 +8,6 @@ interface BrandSelectProps {
   onChange: (id: string) => void
 }
 
-// The visible title is the page heading; a transparent native <select> covers it,
-// so keyboard, screen readers and the native menu work without extra code.
 export default function BrandSelect({ options, value, onChange }: BrandSelectProps) {
   const current = options.find((o) => o.id === value)
 

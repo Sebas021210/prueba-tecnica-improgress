@@ -1,0 +1,14 @@
+@use '../../styles/tokens' as *;
+
+.progress-bar {
+  height: $spacing-8;
+  background: $color-gray-alabaster;
+  border-radius: $radius-pill;
+  overflow: hidden;
+
+  &__fill {
+    height: 100%;
+    background: $color-charts-blue-royal-azure;
+    border-radius: $radius-pill;
+  }
+}

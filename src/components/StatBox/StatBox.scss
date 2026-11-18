@@ -1,0 +1,22 @@
+@use '../../styles/tokens' as *;
+
+.stat-box {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4;
+  padding: $spacing-8 $spacing-12;
+  background: $color-background-sidebar-active;
+  border-radius: $radius-card;
+
+  &__label {
+    font-size: $size-body-3;
+    color: $color-text-primary;
+  }
+
+  &__value {
+    font-family: $font-display;
+    font-size: $size-display-3;
+    font-weight: $weight-heading-3;
+    color: $color-text-primary;
+  }
+}

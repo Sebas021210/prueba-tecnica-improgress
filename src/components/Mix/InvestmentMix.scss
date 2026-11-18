@@ -1,7 +1,5 @@
 @use '../../styles/tokens' as *;
 
-$track-height: $spacing-8;
-
 .mix {
   &__head {
     display: flex;
@@ -55,18 +53,5 @@ $track-height: $spacing-8;
     font-size: $size-body-2;
     font-weight: $weight-body-4;
     color: $color-text-primary;
-  }
-
-  &__track {
-    height: $track-height;
-    background: $color-gray-alabaster;
-    border-radius: $radius-pill;
-    overflow: hidden;
-  }
-
-  &__fill {
-    height: 100%;
-    background: $color-charts-blue-royal-azure;
-    border-radius: $radius-pill;
   }
 }

@@ -3,8 +3,10 @@ import FiltersBar from '@/components/Filters/FiltersBar'
 import KpiRow from '@/components/Kpi/KpiRow'
 import LeadsChart from '@/components/Leads/LeadsChart'
 import InvestmentMix from '@/components/Mix/InvestmentMix'
+import PacingPanel from '@/components/Pacing/PacingPanel'
 import PageState from '@/components/PageState/PageState'
 import Topbar from '@/components/Topbar/Topbar'
+import WhatsappPanel from '@/components/Whatsapp/WhatsappPanel'
 import { useDashboard } from '@/hooks/useDashboard'
 import './App.scss'
 
@@ -36,6 +38,11 @@ export default function App() {
             <div className="app__panels">
               <LeadsChart data={view.leadsPorMes} />
               <InvestmentMix items={view.mix} />
+              <WhatsappPanel
+                audiencia={view.paneles.audiencia}
+                conversionPorCanal={view.paneles.conversionPorCanal}
+              />
+              <PacingPanel pacing={view.paneles.pacing} />
             </div>
           </>
         )}

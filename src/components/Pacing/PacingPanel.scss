@@ -1,0 +1,55 @@
+@use '../../styles/tokens' as *;
+
+$donut-size: 14rem;
+
+.pacing {
+  &__body {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: $spacing-24;
+  }
+
+  &__stats {
+    display: grid;
+    gap: $spacing-12;
+    min-width: $spacing-42 * 4;
+  }
+
+  &__donut {
+    position: relative;
+    flex: 1 1 $donut-size;
+    height: $donut-size;
+  }
+
+  &__slice--done {
+    fill: $color-charts-blue-royal-azure;
+  }
+
+  &__slice--rest {
+    fill: $color-gray-white-smoke;
+  }
+
+  &__center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    pointer-events: none;
+  }
+
+  &__percent {
+    font-family: $font-display;
+    font-size: $size-display-2;
+    font-weight: $weight-display-1;
+    color: $color-text-primary;
+  }
+
+  &__caption {
+    font-size: $size-body-3;
+    color: $color-text-secondary;
+  }
+}

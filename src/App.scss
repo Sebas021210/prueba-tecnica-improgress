@@ -1,6 +1,5 @@
 @use './styles/tokens' as *;
 
-// Layout breakpoint, not a design token.
 $breakpoint-desktop: 1024px;
 
 .app {

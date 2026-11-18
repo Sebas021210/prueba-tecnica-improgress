@@ -1,0 +1,45 @@
+@use '../../styles/tokens' as *;
+
+.whatsapp {
+  &__audience {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-16;
+  }
+
+  &__subtitle {
+    margin: 0;
+    font-size: $size-body-3;
+    font-weight: $weight-body-3;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: $color-text-secondary;
+  }
+
+  &__list {
+    display: grid;
+    gap: $spacing-12;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: $spacing-16;
+    margin-bottom: $spacing-8;
+  }
+
+  &__name {
+    font-size: $size-body-2;
+    color: $color-text-primary;
+  }
+
+  &__value {
+    font-size: $size-body-2;
+    font-weight: $weight-body-4;
+    color: $color-text-primary;
+  }
+}
