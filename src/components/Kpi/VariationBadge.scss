@@ -1,0 +1,24 @@
+@use 'sass:color';
+@use '../../styles/tokens' as *;
+
+// The subtle token pairs fail WCAG AA contrast, so the text is a darker shade of the semantic color.
+.variation-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-4;
+  padding: $spacing-4 $spacing-8;
+  border-radius: $radius-badge;
+  font-size: $size-body-3;
+  font-weight: $weight-body-4;
+  white-space: nowrap;
+
+  &--up {
+    background: $color-semantic-subtle-success;
+    color: color.adjust($color-semantic-success, $lightness: -15%);
+  }
+
+  &--down {
+    background: $color-semantic-subtle-error;
+    color: color.adjust($color-semantic-error, $lightness: -25%);
+  }
+}

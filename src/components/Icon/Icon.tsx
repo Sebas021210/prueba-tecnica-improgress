@@ -2,6 +2,8 @@ const PATHS = {
   'chevron-down': 'M6 9l6 6 6-6',
   'chevron-left': 'M15 6l-6 6 6 6',
   'chevron-right': 'M9 6l6 6-6 6',
+  'trending-up': 'M3 17l6-6 4 4 8-8M14 7h7v7',
+  'trending-down': 'M3 7l6 6 4-4 8 8M14 17h7v-7',
 } as const
 
 export type IconName = keyof typeof PATHS

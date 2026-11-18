@@ -1,0 +1,19 @@
+@use '../../styles/tokens' as *;
+
+// Layout breakpoints, not design tokens.
+$breakpoint-tablet: 640px;
+$breakpoint-desktop: 1024px;
+
+.kpi-row {
+  display: grid;
+  gap: $spacing-16;
+  grid-template-columns: 1fr;
+
+  @media (min-width: $breakpoint-tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

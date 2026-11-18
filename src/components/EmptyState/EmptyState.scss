@@ -1,0 +1,16 @@
+@use '../../styles/tokens' as *;
+
+.empty-state {
+  display: grid;
+  place-items: center;
+  padding: $spacing-42 $spacing-24;
+  background: $color-surface;
+  border: 1px dashed $color-gray-timberwolf;
+  border-radius: $radius-card;
+
+  &__message {
+    margin: 0;
+    font-size: $size-body-2;
+    color: $color-text-secondary;
+  }
+}
