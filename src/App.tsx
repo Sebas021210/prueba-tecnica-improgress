@@ -1,26 +1,29 @@
-import { useAsyncData } from '@/hooks/useAsyncData'
-import { fetchDashboardData } from '@/lib/api'
+import FiltersBar from '@/components/Filters/FiltersBar'
+import PageState from '@/components/PageState/PageState'
+import Topbar from '@/components/Topbar/Topbar'
+import { useDashboard } from '@/hooks/useDashboard'
 import './App.scss'
 
 export default function App() {
-  const { data, loading, error } = useAsyncData(fetchDashboardData)
+  const { loading, error, reload, meta, opciones, filters, setMarca, setPlataforma, setMes, view } =
+    useDashboard()
 
-  if (loading) return <div className="app__estado">Cargando datos...</div>
-  if (error || !data) return <div className="app__estado">Error al cargar la data.</div>
+  if (loading) return <PageState kind="loading" message="Cargando datos..." />
+  if (error || !meta || !opciones || !view) {
+    return <PageState kind="error" message="Error al cargar la data." onRetry={reload} />
+  }
 
   return (
     <div className="app">
-      <div className="app__placeholder">
-        <h1>Comienza aqui</h1>
-        <p>
-          Data cargada correctamente: {data.registros.length} registros,{' '}
-          {data.filtros.marcas.length} marcas y {data.filtros.meses.length} meses.
-        </p>
-        <p>
-          Construye el dashboard segun el diseno. Coloca tus componentes en{' '}
-          <code>src/components</code> y tus hooks en <code>src/hooks</code>.
-        </p>
-        <p>Borra este placeholder cuando empieces.</p>
+      <Topbar cliente={meta.cliente} moneda={meta.moneda} presupuestoTotal={meta.presupuestoTotal} />
+      <div className="app__body">
+        <FiltersBar
+          opciones={opciones}
+          filters={filters}
+          onMarcaChange={setMarca}
+          onPlataformaChange={setPlataforma}
+          onMesChange={setMes}
+        />
       </div>
     </div>
   )

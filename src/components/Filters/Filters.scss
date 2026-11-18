@@ -1,0 +1,149 @@
+@use '../../styles/tokens' as *;
+
+@mixin control-surface {
+  background: $color-background-card;
+  border: 1px solid $color-border;
+  border-radius: $radius-input;
+  color: $color-text-secondary;
+  font-family: inherit;
+  font-size: $size-body-2;
+}
+
+@mixin focus-ring {
+  outline: 2px solid $color-blue;
+  outline-offset: 2px;
+}
+
+.filters-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: $spacing-16;
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: $spacing-16;
+  }
+}
+
+// ---- Brand selector (heading + transparent native select) ----
+.brand-select {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-12;
+  border-radius: $radius-input;
+
+  &:focus-within {
+    @include focus-ring;
+  }
+
+  &__title {
+    margin: 0;
+    font-family: $font-display;
+    font-size: $size-heading-1;
+    font-weight: $weight-heading-1;
+    letter-spacing: -0.02em;
+    color: $color-text-primary;
+  }
+
+  &__chevron {
+    display: grid;
+    place-items: center;
+    width: $spacing-28;
+    height: $spacing-28;
+    border: 2px solid $color-primary-verne;
+    border-radius: $radius-pill;
+    color: $color-primary-verne;
+    font-size: $size-body-2;
+  }
+
+  &__native {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+  }
+}
+
+// ---- Month stepper ----
+.month-stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-8;
+  padding: $spacing-4;
+  @include control-surface;
+
+  &__button {
+    display: grid;
+    place-items: center;
+    padding: $spacing-8;
+    background: transparent;
+    border: 0;
+    border-radius: $radius-icon-button;
+    color: inherit;
+    font-size: $size-body-2;
+    cursor: pointer;
+
+    &:hover:not(:disabled) {
+      background: $color-gray-white-smoke;
+    }
+
+    &:focus-visible {
+      @include focus-ring;
+    }
+
+    &:disabled {
+      color: $color-gray-timberwolf;
+      cursor: not-allowed;
+    }
+  }
+
+  &__label {
+    min-width: $spacing-42 * 2;
+    text-align: center;
+  }
+}
+
+// ---- Platform select ----
+.platform-select {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-12;
+
+  &__label {
+    font-size: $size-body-2;
+    color: $color-text-secondary;
+  }
+
+  &__control {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &__native {
+    appearance: none;
+    padding: $spacing-12 $spacing-42 $spacing-12 $spacing-16;
+    cursor: pointer;
+    @include control-surface;
+
+    &:focus-visible {
+      @include focus-ring;
+    }
+  }
+
+  &__chevron {
+    position: absolute;
+    right: $spacing-12;
+    display: grid;
+    color: $color-text-secondary;
+    font-size: $size-body-2;
+    pointer-events: none;
+  }
+}

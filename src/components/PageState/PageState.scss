@@ -1,0 +1,32 @@
+@use '../../styles/tokens' as *;
+
+.page-state {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: $spacing-16;
+  min-height: 100dvh;
+  color: $color-text-secondary;
+
+  &__message {
+    margin: 0;
+    font-size: $size-body-2;
+  }
+
+  &__retry {
+    padding: $spacing-8 $spacing-20;
+    background: $color-primary-verne;
+    border: 0;
+    border-radius: $radius-button;
+    color: $color-primary-white;
+    font-family: inherit;
+    font-size: $size-body-3;
+    font-weight: $weight-body-4;
+    cursor: pointer;
+
+    &:focus-visible {
+      outline: 2px solid $color-blue;
+      outline-offset: 2px;
+    }
+  }
+}

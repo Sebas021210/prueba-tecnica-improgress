@@ -1,0 +1,43 @@
+@use '../../styles/tokens' as *;
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: $spacing-12;
+  padding: $spacing-20 $spacing-24;
+  background: $color-background-navbar;
+  border-bottom: 1px solid $color-border;
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: $spacing-8;
+    color: $color-blue;
+  }
+
+  &__logo {
+    width: $spacing-36;
+    height: $spacing-36;
+  }
+
+  &__name {
+    font-family: $font-display;
+    font-size: $size-display-3;
+    font-weight: $weight-display-1;
+    letter-spacing: -0.02em;
+    color: $color-text-primary;
+  }
+
+  &__budget {
+    margin: 0;
+    font-size: $size-body-2;
+    color: $color-text-secondary;
+  }
+
+  &__budget-value {
+    font-weight: $weight-body-4;
+    color: $color-primary-simbiotika;
+  }
+}
